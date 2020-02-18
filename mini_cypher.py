@@ -44,7 +44,7 @@ def cesar(opc, texto, clave):
                     letra = abc.index(txt)
                     letra_nueva = (letra + clave) % len(abc)
                     cifrado += abc[letra_nueva]
-                print(txt)
+                #print(txt)
             print("Mensaje cifrado: " + cifrado)
         elif modo == "2":
             abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
@@ -56,24 +56,36 @@ def cesar(opc, texto, clave):
                     letra = abc.index(txt)
                     letra_nueva = (letra - clave) % len(abc)
                     cifrado += abc[letra_nueva]
-                print(txt)
+                #print(txt)
             print("Mensaje cifrado: " + cifrado)
         else:
             print(MSG_INS)
             ver_instrucciones()
     else:
         print("Descifrar")
+        print("Selecciona modo de desplazamineto\n1.Derecha\n2.Izquierda")
+        modo = input(":")
         abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-               'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+                'M', 'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
         texto = texto.upper()
         descifrado = ""
-        for txt in texto:
-            if txt in abc:
-                letra = abc.index(txt)
-                letra_nueva = (letra - clave) % len(abc)
-                descifrado += abc[letra_nueva]
-            print(txt)
-        print("Mensaje descifrado: " + descifrado)
+        if modo == "1":
+          for txt in texto:
+              if txt in abc:
+                  letra = abc.index(txt)
+                  letra_nueva = (letra - clave) % len(abc)
+                  descifrado += abc[letra_nueva]
+              #print(txt)
+          print("Mensaje descifrado: " + descifrado)
+        elif modo == "2":
+          for txt in texto:
+              if txt in abc:
+                  letra = abc.index(txt)
+                  letra_nueva = (letra + clave) % len(abc)
+                  descifrado += abc[letra_nueva]
+              #print(txt)
+          print("Mensaje descifrado: " + descifrado)
+
 
 
 def plybios(opc, texto):
